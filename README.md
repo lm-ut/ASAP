@@ -1,6 +1,6 @@
-# ASAP
+# TMP
 
-ASAP leverages PCA and NNLS (Non-Negative Least Squares) to assess the ancestral composition of admixed individuals with high accuracy and reliability.
+TMP leverages PCA and NNLS (Non-Negative Least Squares) to assess the ancestral composition of admixed individuals with high accuracy and reliability.
 
 ## Installation
 
@@ -16,3 +16,14 @@ ASAP requires the following R packages:
 install.packages("dplyr")
 install.packages("nnls")
 install.packages("ggplot2")
+```
+
+## Usage
+
+## Cite TMP
+
+If you use TMP, please cite [BiorXiv preprint]()
+
+## Contact
+
+For questions and bug reports please contact [LM](mailto:ludovica.molinaro@kuleuven.be).
