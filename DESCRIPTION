@@ -1,7 +1,7 @@
 Package: ASAP
 Title: ASsessing Ancestry through Principal component analysis
 Version: 0.0.1
-Authors@R: c(person("Ludovica", "Molinaro",email = "lu.molinaro8@gmail.com", role = c("aut", "cre","ctb","cph","fnd"),comment = c(ORCID = "YOUR-ORCID-ID")),
+Authors@R: c(person("Ludovica", "Molinaro",email = "ludovica.molinaro@kuleuven.be", role = c("aut", "cre","ctb","cph","fnd"),comment = c(ORCID = "YOUR-ORCID-ID")),
     person("Francesco", "Montinaro", email = "AAA@BBB.com", role = c("aut"),comment = c(ORCID = "YOUR-ORCID-ID")),
     person("Luciana", "DeGennaro",email = "AAA@BBB.com", role = c("aut"),comment = c(ORCID = "YOUR-ORCID-ID")))
 Description: Estimates global ancestry proportions from Principal Component Analyses through Non-Negative Least Squares.
