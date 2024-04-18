@@ -6,10 +6,10 @@
 #' @param as_file R data.frame with two columns: POP and A/S, POP column lists all populations to be considered, A/S indicates whether the population should be considered as Admixed ('A') or as Source ('S')
 #' @param eigentype if present, PCA will be read through read_eigen() function, if absent PCA will be loaded via read_flash()
 #' @examples
-#' example_as = read.table('data/Example_AS_2', header=TRUE)
+#' example_as = read.table('data/Example_AS', header=TRUE)
 #'
-#' pca_jackknife = read.resampling(path_tofiles = 'data/', file_pattern = '*_Jack*', as_file = example_as, eigentype) #OR
-#' pca_jackknife = read.resampling(path_tofiles = 'data/', file_pattern = '*_Jack*', as_file = example_as)
+#' pca_jackknife = read.resampling(path_tofiles = 'data/', file_pattern = '*_Jack*', as_file = Example_AS, eigentype) #OR
+#' pca_jackknife = read.resampling(path_tofiles = 'data/', file_pattern = '*_Jack*', as_file = Example_AS)
 #' @return Returns a table containing the ASAP results per each resampled set.
 #' @export
 

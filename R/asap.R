@@ -6,8 +6,8 @@
 #' @param sources R vector indicating the groups that should be considered as Sources
 #' @param admixed R vector indicating the groups that should be considered as Admixed
 #' @examples
-#' pca = read.table('data/TOY.pca') # OR
-#' pca = read_eigen('data/TOY.pca.evec') # OR
+#' pca = read.table('example.pca') #OR
+#' pca = read_eigen('data/TOY.pca.evec') #OR
 #' pca = read_flash('data/TOY_flash.pca')
 #'
 #' example_AS = read.table('data/Example_AS', header = T)

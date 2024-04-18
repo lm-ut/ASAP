@@ -16,5 +16,5 @@ Returns a PCA matrix with new header: POP ID PC1 PCN CC
 read_eigen reads smartpca output from EIGENSTRAT, where the first column contains Family ID, the second sample ID, and the following the PCs
 }
 \examples{
-read_eigen(pca_input = 'data/my_PCA.pca.evec')
+read_eigen(pca_input = 'data/TOY.pca.evec')
 }
