@@ -10,10 +10,6 @@ devtools::install_github("lm-it/tmp", dependencies = TRUE)
 library("tmp")
 ```
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE, comment=FALSE}
-library('tmp')
-```
-
 ASAP requires the following R packages: 
 
 ```{r, eval=FALSE}
