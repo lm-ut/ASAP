@@ -79,6 +79,8 @@ $ ASAP_result = ASAP(pca_input = pca, as_file = AS_file)
 ```{r, eval=FALSE}
 $ ASAP_result = ASAP(pca_input = pca, sources = c('ESN','CEU'), admixed=c('GIH'))
 ```
+
+#### Writing ASAP output
   
 Finally, if you want to save ASAP results on a table-like format, you can use ```write_ASAP()```, this way:
   
