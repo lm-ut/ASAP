@@ -34,6 +34,8 @@ $ pca = read_eigen(pca_input = 'data/TOY.pca.evec')
 $ ASAP_result = ASAP(pca_input = pca, sources = c('ESN','CEU'), admixed=c('GIH'))
 ```
 
+#### Reading the PCA Matrix
+
 ASAP package has two functions to read the PCA matrix, ```read_eigen()``` and ```read_flash()```.  
 * ```read_eigen()``` will read a PCA that has been created with smartpca from the [EIGENSOFT](https://github.com/DReichLab/EIG) software.  
 * ```read_flash()``` instead, will read a PCA that has been created with [flashpca](https://github.com/gabraham/flashpca) software.  
@@ -47,11 +49,7 @@ The goal of both functions is to set the PCA file as follows:
   
 If neither ```read_eigen()``` nor ```read_flash()``` is for you, you might want to simply use ```read.table()```, and set the file so that it has the aforementioned look.  
 
-For the sake of the example, let's say you obtained a PCA from the software EIGENSOFT, using smartpca.  
-
-```{r, eval=FALSE}
-$ pca = read_eigen(pca_input = 'data/TOY.pca.evec')
-```  
+#### Running ASAP
   
 The funtion ```ASAP()``` requires also a list of the target and reference groups: you can provide the list in two ways.
 
