@@ -1,6 +1,6 @@
 # ASAP
 
-ASAP leverages PCA and NNLS (Non-Negative Least Squares) to assess the ancestral composition of admixed individuals with high accuracy and reliability.
+*ASAP* leverages PCA and NNLS (Non-Negative Least Squares) to assess the ancestral composition of admixed individuals with high accuracy and reliability.
 
 ## Installation
 
@@ -10,7 +10,7 @@ devtools::install_github("lm-ut/ASAP", dependencies = TRUE)
 library("ASAP")
 ```
 
-ASAP requires the following R packages: 
+*ASAP* requires the following R packages: 
 
 ```{r, eval=FALSE}
 install.packages("dplyr")
@@ -20,11 +20,11 @@ install.packages("ggplot2")
 
 ## Introduction
 
-ASAP estimations are based on a PCA where the target and source groups are available. Along with those, we suggest to use additional groups to better define the PC space. Once that the PC space is defined, a set of NNLS is then applied on the PC coordinates, effectively summarizing the genetic ancestry. 
+*ASAP* estimations are based on a PCA where the target and source groups are available. Along with those, we suggest to use additional groups to better define the PC space. Once that the PC space is defined, a set of NNLS is then applied on the PC coordinates, effectively summarizing the genetic ancestry. 
 
 For its most basic usage ASAP needs:  
 
-- A PCA matrix, a dataframe with N PCs
+- A PCA matrix (a dataframe with N PCs)
 - A list of target and source groups (or samples)
 
 ### Basic Usage Example
@@ -34,11 +34,14 @@ $ pca = read_eigen(pca_input = 'data/TOY.pca.evec')
 $ ASAP_result = ASAP(pca_input = pca, sources = c('ESN','CEU'), admixed=c('GIH'))
 ```
 
+
 #### Reading the PCA Matrix
 
-ASAP package has two functions to read the PCA matrix, ```read_eigen()``` and ```read_flash()```.  
+
+*ASAP* package has two functions to read the PCA matrix, ```read_eigen()``` and ```read_flash()```.  
 * ```read_eigen()``` will read a PCA that has been created with smartpca from the [EIGENSOFT](https://github.com/DReichLab/EIG) software.  
-* ```read_flash()``` instead, will read a PCA that has been created with [flashpca](https://github.com/gabraham/flashpca) software.  
+* ```read_flash()``` instead, will read a PCA that has been created with [flashpca](https://github.com/gabraham/flashpca) software.
+   
 The goal of both functions is to set the PCA file as follows:  
   
 | POP | IND   | PCN |
@@ -49,7 +52,9 @@ The goal of both functions is to set the PCA file as follows:
   
 If neither ```read_eigen()``` nor ```read_flash()``` is for you, you might want to simply use ```read.table()```, and set the file so that it has the aforementioned look.  
 
+
 #### Running ASAP
+
   
 The funtion ```ASAP()``` requires also a list of the target and reference groups: you can provide the list in two ways.
 
@@ -82,7 +87,7 @@ $ ASAP_result = ASAP(pca_input = pca, sources = c('ESN','CEU'), admixed=c('GIH')
 
 #### Writing ASAP output
   
-Finally, if you want to save ASAP results on a table-like format, you can use ```write_ASAP()```, this way:
+Finally, if you want to save *ASAP* results on a table-like format, you can use ```write_ASAP()```:
   
 ```{r, eval=FALSE}
 $ ASAP_result <- ASAP(pca_input = pca, sources = c('ESN','CEU'), admixed=c('GIH'))
