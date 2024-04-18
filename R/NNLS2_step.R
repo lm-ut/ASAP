@@ -65,6 +65,7 @@ getoverallfit2=function(predmat,fitdata){
 #' @examples
 #' nnls.mat2(donors = my_source_individuals_matrix,recipients = my_admixed_individuals_matrix)
 #' @return Returns matrix describing the admixed groups as a mixture of the source groups, along with the residuals
+#' @export
 
 nnls.mat2 <- function(donors,recipients){
   mat <- matrix(nrow=nrow(recipients),ncol=nrow(donors),dimnames =list(rownames(recipients),rownames(donors)))

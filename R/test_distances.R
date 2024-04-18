@@ -11,6 +11,7 @@
 #' pcs_distances(pca, '~/data/output_distances', sources_file = sources_file, return_plot = 'YES')
 #' @return Returns an output_name.csv file with the cumulative distances
 #' @return Returns a output_name.pdf file with the cumulative distances
+#' @export
 
 pcs_distances <- function(pca_input, output_name, sources_file, return_plot = NULL) {
 

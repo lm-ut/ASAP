@@ -5,6 +5,7 @@
 #' @param output_name output name for asap pdf plot
 #' @param type_ggplot NULL by default or 'YES' to plot with ggplot2
 #' @return Returns an ASAP_plot.pdf file in the working directory
+#' @export
 
 plot_asap <- function(asap_result, output_name, type_ggplot = NULL) {
 

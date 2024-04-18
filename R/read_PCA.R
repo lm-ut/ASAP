@@ -5,6 +5,7 @@
 #' @examples
 #' read_eigen(pca_input = 'data/my_PCA.pca.evec')
 #' @return Returns a PCA matrix with new header: POP ID PC1 PCN CC
+#' @export
 
 read_eigen <- function(pca_input) {
 pca = read.table(text = gsub(":", " ", readLines(pca_input)))
@@ -21,6 +22,7 @@ return(pca) }
 #' @examples
 #' read_eigen(pca_input = 'data/my_PCA.flashpca')
 #' @return Returns a PCA matrix with new header: POP ID PC1 PCN
+#' @export
 
 read_flash <- function(pca_input) {
   pca = read.table(pca_input, header=TRUE, sep="")
