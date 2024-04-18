@@ -5,8 +5,8 @@
 ## Installation
 
 ```{r, eval=FALSE}
-install.packages("devtools") 
-devtools::install_github("lm-ut/ASAP", dependencies = TRUE)
+install.packages("devtools") # if you have not installed "devtools" package
+devtools::install_github("lm-ut/ASAP")
 library("ASAP")
 ```
 
