@@ -31,7 +31,7 @@ For its most basic usage ASAP needs:
   
 ```{r, eval=FALSE}
 $ pca = read_eigen(pca_input = 'data/TOY.pca.evec')
-$ ASAP_result = ASAP(pca_input = pca, sources = c('ESN','CEU'), admixed=c('GIH'))
+$ ASAP_result = ASAP(pca_input = pca, sources = c('GST1','GST2'), admixed=c('70GST1.30GST2'))
 ```
 
 
@@ -46,9 +46,9 @@ The goal of both functions is to set the PCA file as follows:
   
 | POP | IND   | PCN |
 | --- | ----  | ------- |
-| ASW | ASW_1 | 0.01 |
-| ASW | ASW_2 | 0.02 |
-| BEB | BEB_1 | 0.08 |
+| SRC1 | SRC1_1 | 0.01 |
+| SRC1 | SCR1_2 | 0.02 |
+| ADM1 | ADM1_1 | 0.08 |
   
 If neither ```read_eigen()``` nor ```read_flash()``` is for you, you might want to simply use ```read.table()```, and set the file so that it has the aforementioned look.  
 
@@ -63,14 +63,14 @@ The AS_file is a two-columns file with the population list on the first column, 
 
 | POP | A/S |
 | --- | --- |
-| ESN | S |
-| CEU | S |
-| GIH | A |
+| SRC1 | S |
+| SRC2 | S |
+| ADM1 | A |
 
 To read the AS_file, a simple ```read_table(file, header=T)``` will be sufficient.   
 
 ```{r, eval=FALSE}
-$ AS_file = read.table('data/Example_AS_eigen', header=TRUE)
+$ AS_file = read.table('data/Example_AS', header=TRUE)
 ```
 
 With the PCA and AS_file loaded, we are finally ready to run ASAP as follows:
@@ -82,7 +82,7 @@ $ ASAP_result = ASAP(pca_input = pca, as_file = AS_file)
 2) You can avoid relying on the AS_file if you wish, using a vector of the target and source groups directly in ASAP() function, as follows:
   
 ```{r, eval=FALSE}
-$ ASAP_result = ASAP(pca_input = pca, sources = c('ESN','CEU'), admixed=c('GIH'))
+$ ASAP_result = ASAP(pca_input = pca, sources = c('GST1','GST2'), admixed=c('70GST1.30GST2'))
 ```
 
 #### Writing ASAP output
@@ -90,7 +90,7 @@ $ ASAP_result = ASAP(pca_input = pca, sources = c('ESN','CEU'), admixed=c('GIH')
 Finally, if you want to save *ASAP* results on a table-like format, you can use ```write_ASAP()```:
   
 ```{r, eval=FALSE}
-$ ASAP_result <- ASAP(pca_input = pca, sources = c('ESN','CEU'), admixed=c('GIH'))
+$ ASAP_result <- ASAP(pca_input = pca, sources = c('GST1','GST2'), admixed=c('70GST1.30GST2'))
 $ write_ASAP(ASAP_input = ASAP_result, output_name = 'my_dir/my_asap_results.txt')
 ```
 
