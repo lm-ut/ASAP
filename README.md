@@ -6,7 +6,7 @@ ASAP leverages PCA and NNLS (Non-Negative Least Squares) to assess the ancestral
 
 ```{r, eval=FALSE}
 install.packages("devtools") 
-devtools::install_github("lm-it/tmp", dependencies = TRUE)
+devtools::install_github("lm-ut/tmp", dependencies = TRUE)
 library("tmp")
 ```
 
