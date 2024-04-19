@@ -84,7 +84,7 @@
 <h3 id="basic-usage-example">Basic Usage Example<a class="anchor" aria-label="anchor" href="#basic-usage-example"></a>
 </h3>
 <pre><code>$ pca = read_eigen(pca_input = 'data/TOY.pca.evec')
-$ ASAP_result = ASAP(pca_input = pca, sources = c('GST1','GST2'), admixed=c('70GST1.30GST2'))</code></pre>
+$ ASAP_result = asap(pca_input = pca, sources = c('GST1','GST2'), admixed=c('70GST1.30GST2'))</code></pre>
 <div class="section level4">
 <h4 id="reading-the-pca-matrix">Reading the PCA Matrix<a class="anchor" aria-label="anchor" href="#reading-the-pca-matrix"></a>
 </h4>
@@ -126,7 +126,7 @@ $ ASAP_result = ASAP(pca_input = pca, sources = c('GST1','GST2'), admixed=c('70G
 <div class="section level4">
 <h4 id="running-asap">Running ASAP<a class="anchor" aria-label="anchor" href="#running-asap"></a>
 </h4>
-<p>The funtion <code>ASAP()</code> requires also a list of the target and reference groups: you can provide the list in two ways.</p>
+<p>The funtion <code>asap()</code> requires also a list of the target and reference groups: you can provide the list in two ways.</p>
 <p>1) You can provide an ‘AS_file’: a file with the list of the Admixed groups (A) and the Source groups (S). If you want to use ASAP sample-wise rather than group-wise, simply adjust the PCA file so that in the ‘POP’ column is identical to the ‘IND’ column, and set the AS_file with the samples list, rather than the group list.<br>
 The AS_file is a two-columns file with the population list on the first column, and the ‘A/S’ information on the second column. The ‘A/S’ information stands for Admixed (A) or Source (S). For each population/group we will indicate whether ASAP should consider it as a Source (S) or as an admixed target (A), the file looks like this:</p>
 <table class="table">
@@ -152,16 +152,16 @@ The AS_file is a two-columns file with the population list on the first column, 
 <p>To read the AS_file, a simple <code>read_table(file, header=T)</code> will be sufficient.</p>
 <pre><code>$ AS_file = read.table('data/Example_AS', header=TRUE)</code></pre>
 <p>With the PCA and AS_file loaded, we are finally ready to run ASAP as follows:</p>
-<pre><code>$ ASAP_result = ASAP(pca_input = pca, as_file = AS_file)</code></pre>
+<pre><code>$ ASAP_result = asap(pca_input = pca, as_file = AS_file)</code></pre>
 <p>2) You can avoid relying on the AS_file if you wish, using a vector of the target and source groups directly in asap() function, as follows:</p>
-<pre><code>$ ASAP_result = ASAP(pca_input = pca, sources = c('GST1','GST2'), admixed=c('70GST1.30GST2'))</code></pre>
+<pre><code>$ ASAP_result = asap(pca_input = pca, sources = c('GST1','GST2'), admixed=c('70GST1.30GST2'))</code></pre>
 </div>
 <div class="section level4">
 <h4 id="writing-asap-output">Writing ASAP output<a class="anchor" aria-label="anchor" href="#writing-asap-output"></a>
 </h4>
-<p>Finally, if you want to save <em>ASAP</em> results on a table-like format, you can use <code>write_ASAP()</code>:</p>
+<p>Finally, if you want to save <em>ASAP</em> results on a table-like format, you can use <code>write_asap()</code>:</p>
 <pre><code>$ ASAP_result &lt;- ASAP(pca_input = pca, sources = c('GST1','GST2'), admixed=c('70GST1.30GST2'))
-$ write_ASAP(ASAP_input = ASAP_result, output_name = 'my_dir/my_asap_results.txt')</code></pre>
+$ write_asap(ASAP_input = ASAP_result, output_name = 'my_dir/my_asap_results.txt')</code></pre>
 </div>
 </div>
 </div>
