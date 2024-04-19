@@ -20,7 +20,7 @@ install.packages("ggplot2")
 
 ## Introduction
 
-*ASAP* estimations are based on a PCA where the target and source groups are available. Along with those, we suggest to use additional groups to better define the PC space. Once that the PC space is defined, a set of NNLS is then applied on the PC coordinates, effectively summarizing the genetic ancestry. 
+*ASAP* estimations are based on a PCA where the target and source groups are available. Along with those, we suggest to use additional groups to better define the PC space. Once that the PC space is defined, a set of NNLS is then applied on the PC coordinates, effectively summarizing the genetic ancestry. A full tutorial is available [here](https://lm-ut.github.io/ASAP/articles/Tutorial.html).
 
 For its most basic usage ASAP needs:  
 
