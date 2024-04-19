@@ -6,12 +6,9 @@
 #' @param sources R vector indicating the groups that should be considered as Sources
 #' @param admixed R vector indicating the groups that should be considered as Admixed
 #' @examples
-#' pca = read.table('example.pca') #OR
 #' pca = read_eigen('data/TOY.pca.evec') #OR
 #' pca = read_flash('data/TOY_flash.pca')
-#'
 #' example_AS = read.table('data/Example_AS', header = T)
-#'
 #' asap(pca_input = pca, as_file = example_AS) #OR
 #' asap(pca_input = pca, sources = c('Source1','Source2','Source3'), admixed = c('Admixed1','Admixed2')
 #' @return Returns a list containing the ancestries proportions per each Admixed group
@@ -131,8 +128,12 @@ asap <- function(pca_input, as_file, sources = NULL, admixed = NULL) {
 #' @param asap_input R list returned by asap() function
 #' @param output_name string containing the file output name
 #' @examples
+#' \dontrun{
+#' pca = read_eigen(pca_input = 'data/TOY.pca.evec')
+#' example_as = read.table('data/Example_AS', header=TRUE)
 #' asap_results <- asap(pca_input = pca, as_file = example_as)
 #' write_asap(asap_input = asap_results, output_name = 'my_dir/my_asap_results.txt')
+#' }
 #' @export
 
 write_asap <- function(asap_input,output_name) {

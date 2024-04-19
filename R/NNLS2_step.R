@@ -63,7 +63,9 @@ getoverallfit2=function(predmat,fitdata){
 #' @param donors Matrix with reference groups
 #' @param recipients Matrix with target groups
 #' @examples
+#' \dontrun{
 #' nnls.mat2(donors = my_source_individuals_matrix,recipients = my_admixed_individuals_matrix)
+#' }
 #' @return Returns matrix describing the admixed groups as a mixture of the source groups, along with the residuals
 #' @export
 

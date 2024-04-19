@@ -6,10 +6,11 @@
 #' @param as_file R data.frame with two columns: POP and A/S, POP column lists all populations to be considered, A/S indicates whether the population should be considered as Admixed ('A') or as Source ('S')
 #' @param eigentype if present, PCA will be read through read_eigen() function, if absent PCA will be loaded via read_flash()
 #' @examples
+#' \dontrun{
 #' example_as = read.table('data/Example_AS', header=TRUE)
-#'
-#' pca_jackknife = read.resampling(path_tofiles = 'data/', file_pattern = '*_Jack*', as_file = Example_AS, eigentype) #OR
-#' pca_jackknife = read.resampling(path_tofiles = 'data/', file_pattern = '*_Jack*', as_file = Example_AS)
+#' pca_jackknife = read.resampling(path_tofiles = 'data/', file_pattern = '*_Jack*', as_file = example_as, eigentype) #OR
+#' pca_jackknife = read.resampling(path_tofiles = 'data/', file_pattern = '*_Jack*', as_file = example_as)
+#' }
 #' @return Returns a table containing the ASAP results per each resampled set.
 #' @export
 
@@ -45,7 +46,9 @@ return(nnlsjack)
 #' @param nnls_resampling list contining multilpe asap() function results, on the resampled set.
 #' @param chromovec a numeric vector containing the number of SNPs per each chromosome (ie. chromovec = rep(1000,times = 22))
 #' @examples
+#' \dontrun{
 #' se.resampling(nnls_main = ASAP_main, nnls_resampling = ASAP_resampling, chromovec)
+#' }
 #' @return Returns a table containing the standard error per each target given the source group.
 #' @export
 

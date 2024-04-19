@@ -6,9 +6,11 @@
 #' @param sources_file Two columns table: S1 and S2. Contains the pairs of sources that will be compared.
 #' @param return_plot NULL by default or 'YES' to plot with ggplot2
 #' @examples
-#' sources_file = read.table('~/data/Sources_Distances', header =T)
+#' \dontrun{
+#' Source_D = read.table('data/Sources_Distances', header =T)
 #' pca = read_flash(pca_input = 'data/TOY_flash.pca')
-#' pcs_distances(pca, '~/data/output_distances', sources_file = sources_file, return_plot = 'YES')
+#' pcs_distances(pca, 'data/output_distances', sources_file = Source_D, return_plot = 'YES')
+#' }
 #' @return Returns an output_name.csv file with the cumulative distances
 #' @return Returns a output_name.pdf file with the cumulative distances
 #' @export
