@@ -16,5 +16,7 @@ Returns a PCA matrix with new header: POP ID PC1 PCN
 read_flash reads PCA output from flashpca, where the first column contains Family ID, the second sample ID, and the following the PCs
 }
 \examples{
+\dontrun{
 read_flash(pca_input = 'data/TOY_flash.pca')
+}
 }

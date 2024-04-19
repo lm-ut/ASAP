@@ -15,6 +15,10 @@ write_asap(asap_input, output_name)
 write_asap allows to save ASAP results in a table-like format.
 }
 \examples{
+\dontrun{
+pca = read_eigen(pca_input = 'data/TOY.pca.evec')
+example_as = read.table('data/Example_AS', header=TRUE)
 asap_results <- asap(pca_input = pca, as_file = example_as)
 write_asap(asap_input = asap_results, output_name = 'my_dir/my_asap_results.txt')
+}
 }

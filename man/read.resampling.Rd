@@ -22,8 +22,9 @@ Returns a table containing the ASAP results per each resampled set.
 read.resampling reads all resampled PCAs and performs ASAP on each one. It returns a list containing all ASAP results per each resampling. The output can then be used in the se.resampling function, to estimate the standard error.
 }
 \examples{
+\dontrun{
 example_as = read.table('data/Example_AS', header=TRUE)
-
-pca_jackknife = read.resampling(path_tofiles = 'data/', file_pattern = '*_Jack*', as_file = Example_AS, eigentype) #OR
-pca_jackknife = read.resampling(path_tofiles = 'data/', file_pattern = '*_Jack*', as_file = Example_AS)
+pca_jackknife = read.resampling(path_tofiles = 'data/', file_pattern = '*_Jack*', as_file = example_as, eigentype) #OR
+pca_jackknife = read.resampling(path_tofiles = 'data/', file_pattern = '*_Jack*', as_file = example_as)
+}
 }

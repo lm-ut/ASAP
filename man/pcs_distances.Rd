@@ -24,7 +24,9 @@ Returns a output_name.pdf file with the cumulative distances
 pcs_distances allows to estimate the cumulative euclidean distances of the PCs between the Sources, and plot the results (return_plot = 'YES').
 }
 \examples{
-sources_file = read.table('~/data/Sources_Distances', header =T)
+\dontrun{
+Source_D = read.table('data/Sources_Distances', header =T)
 pca = read_flash(pca_input = 'data/TOY_flash.pca')
-pcs_distances(pca, '~/data/output_distances', sources_file = sources_file, return_plot = 'YES')
+pcs_distances(pca, 'data/output_distances', sources_file = Source_D, return_plot = 'YES')
+}
 }

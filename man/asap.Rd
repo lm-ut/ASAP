@@ -22,12 +22,9 @@ Returns a list containing the ancestries proportions per each Admixed group
 asap function takes a PCA as input and analyses it via NNLS to describe admixed individuals as a mixture of sources groups.
 }
 \examples{
-pca = read.table('example.pca') #OR
 pca = read_eigen('data/TOY.pca.evec') #OR
 pca = read_flash('data/TOY_flash.pca')
-
 example_AS = read.table('data/Example_AS', header = T)
-
 asap(pca_input = pca, as_file = example_AS) #OR
 asap(pca_input = pca, sources = c('Source1','Source2','Source3'), admixed = c('Admixed1','Admixed2')
 }

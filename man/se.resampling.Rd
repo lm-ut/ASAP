@@ -20,5 +20,7 @@ Returns a table containing the standard error per each target given the source g
 se.resampling estimates the Standard Error comparing a main ASAP run and multiple other ASAP runs, for example runs obtained with jackknife resampling. se.resampling takes three inputs: a list with the main ASAP result, a list with the resampling ASAP results, and a numeric vector containing the number of SNPs per each chromosome.
 }
 \examples{
+\dontrun{
 se.resampling(nnls_main = ASAP_main, nnls_resampling = ASAP_resampling, chromovec)
+}
 }

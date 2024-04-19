@@ -18,5 +18,7 @@ Returns matrix describing the admixed groups as a mixture of the source groups, 
 nnls.mat2 function solves nonnegative least squares problems. It requires two matrices, one ('donors') refers to the source groups, the second ('recipients') refers to the admixed groups
 }
 \examples{
+\dontrun{
 nnls.mat2(donors = my_source_individuals_matrix,recipients = my_admixed_individuals_matrix)
+}
 }
