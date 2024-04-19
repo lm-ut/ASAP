@@ -1,10 +1,25 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file --->
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%",
+)
+```
+
 # ASAP
 
 *ASAP* leverages PCA and NNLS (Non-Negative Least Squares) to assess the ancestral composition of admixed individuals with high accuracy and reliability.
 
 ## Installation
 
-```
+```{r, eval=FALSE}
 install.packages("devtools") # if you have not installed "devtools" package
 devtools::install_github("lm-ut/ASAP")
 library("ASAP")
@@ -12,7 +27,7 @@ library("ASAP")
 
 *ASAP* requires the following R packages: 
 
-```
+```{r, eval=FALSE}
 install.packages("dplyr")
 install.packages("nnls")
 install.packages("ggplot2")
@@ -29,7 +44,7 @@ For its most basic usage ASAP needs:
 
 ### Basic Usage Example
   
-```
+```{r, eval=FALSE}
 $ pca = read_eigen(pca_input = 'data/TOY.pca.evec')
 $ ASAP_result = ASAP(pca_input = pca, sources = c('GST1','GST2'), admixed=c('70GST1.30GST2'))
 ```
@@ -69,19 +84,19 @@ The AS_file is a two-columns file with the population list on the first column, 
 
 To read the AS_file, a simple ```read_table(file, header=T)``` will be sufficient.   
 
-```
+```{r, eval=FALSE}
 $ AS_file = read.table('data/Example_AS', header=TRUE)
 ```
 
 With the PCA and AS_file loaded, we are finally ready to run ASAP as follows:
 
-```
+```{r, eval=FALSE}
 $ ASAP_result = ASAP(pca_input = pca, as_file = AS_file)
 ```
   
 2) You can avoid relying on the AS_file if you wish, using a vector of the target and source groups directly in asap() function, as follows:
   
-```
+```{r, eval=FALSE}
 $ ASAP_result = ASAP(pca_input = pca, sources = c('GST1','GST2'), admixed=c('70GST1.30GST2'))
 ```
 
@@ -89,7 +104,7 @@ $ ASAP_result = ASAP(pca_input = pca, sources = c('GST1','GST2'), admixed=c('70G
   
 Finally, if you want to save *ASAP* results on a table-like format, you can use ```write_ASAP()```:
   
-```
+```{r, eval=FALSE}
 $ ASAP_result <- ASAP(pca_input = pca, sources = c('GST1','GST2'), admixed=c('70GST1.30GST2'))
 $ write_ASAP(ASAP_input = ASAP_result, output_name = 'my_dir/my_asap_results.txt')
 ```
