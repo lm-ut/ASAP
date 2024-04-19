@@ -56,7 +56,7 @@ If neither ```read_eigen()``` nor ```read_flash()``` is for you, you might want 
 #### Running ASAP
 
   
-The funtion ```ASAP()``` requires also a list of the target and reference groups: you can provide the list in two ways.
+The funtion ```asap()``` requires also a list of the target and reference groups: you can provide the list in two ways.
 
 1) You can provide an 'AS_file': a file with the list of the Admixed groups (A) and the Source groups (S). If you want to use ASAP sample-wise rather than group-wise, simply adjust the PCA file so that in the 'POP' column is identical to the 'IND' column, and set the AS_file with the samples list, rather than the group list.   
 The AS_file is a two-columns file with the population list on the first column, and the 'A/S' information on the second column. The 'A/S' information stands for Admixed (A) or Source (S). For each population/group we will indicate whether ASAP should consider it as a Source (S) or as an admixed target (A), the file looks like this:  
@@ -79,7 +79,7 @@ With the PCA and AS_file loaded, we are finally ready to run ASAP as follows:
 $ ASAP_result = ASAP(pca_input = pca, as_file = AS_file)
 ```
   
-2) You can avoid relying on the AS_file if you wish, using a vector of the target and source groups directly in ASAP() function, as follows:
+2) You can avoid relying on the AS_file if you wish, using a vector of the target and source groups directly in asap() function, as follows:
   
 ```{r, eval=FALSE}
 $ ASAP_result = ASAP(pca_input = pca, sources = c('GST1','GST2'), admixed=c('70GST1.30GST2'))
@@ -87,7 +87,7 @@ $ ASAP_result = ASAP(pca_input = pca, sources = c('GST1','GST2'), admixed=c('70G
 
 #### Writing ASAP output
   
-Finally, if you want to save *ASAP* results on a table-like format, you can use ```write_ASAP()```:
+Finally, if you want to save *ASAP* results on a table-like format, you can use ```write_asap()```:
   
 ```{r, eval=FALSE}
 $ ASAP_result <- ASAP(pca_input = pca, sources = c('GST1','GST2'), admixed=c('70GST1.30GST2'))
