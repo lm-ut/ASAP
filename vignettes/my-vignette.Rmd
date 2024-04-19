@@ -22,13 +22,13 @@ library(ASAP)
 Introduction
 ============
 
-ASAP is an R package that leverages PCA and NNLS (Non-Negative Least Squares) to assess the ancestral composition of admixed individuals with high accuracy and reliability, the approach further described in "ASAP - Assessing Ancestry through Principal Components" De Gennaro & Molinaro et al, Journal, Year, doi. ASAP assigns the genetic ancestry of list of target samples or populations given a list of putative sources.
+*ASAP* is an R package that leverages PCA and NNLS (Non-Negative Least Squares) to assess the ancestral composition of admixed individuals with high accuracy and reliability, the approach further described in [ASAP - Assessing Ancestry through Principal Components" De Gennaro & Molinaro et al, Journal, Year, doi](). ASAP assigns the genetic ancestry of list of target samples or populations given a list of putative sources.
 
-ASAP estimations are based on a PCA where the targets and sources group are available, along with those we suggest to use additional groups to better define the PC space. Once that the PC space is defined, a set of NNLS is then applied on the PC coordinates, effectively summarizing the genetic ancestry. 
+*ASAP* estimations are based on a PCA where the targets and source groups are available, along with those we suggest to use additional groups to better define the PC space. Once that the PC space is defined, a set of NNLS is then applied on the PC coordinates, effectively summarizing the genetic ancestry. 
 
 For its most basic usage ASAP needs:  
 
-I) A PCA matrix, a dataframe with N PCs  
+I) A PCA matrix (a dataframe with N PCs)
 II) A list of target and source groups (or samples)
   
     
@@ -80,38 +80,38 @@ $ AS_file = read.table('data/Example_AS_eigen', header=TRUE)
 With the PCA and AS_file loaded, we are finally ready to run ASAP as follows:
 
 ```{r, eval=FALSE}
-$ ASAP_result = ASAP(pca_input = pca, as_file = AS_file)
+$ ASAP_result = asap(pca_input = pca, as_file = AS_file)
 ```
   
   
-You can avoid relying on the AS_file if you wish, and rather use a vector of the target and source groups directly in ASAP() function, as follows:
+You can avoid relying on the AS_file if you wish, and rather use a vector of the target and source groups directly in asap() function, as follows:
   
 ```{r, eval=FALSE}
-$ ASAP_result = ASAP(pca_input = pca, sources = c('ESN','CEU'), admixed=c('GIH'))
+$ ASAP_result = asap(pca_input = pca, sources = c('ESN','CEU'), admixed=c('GIH'))
 ```
   
   
 Finally, if you want to save ASAP results on a table-like format, you can use ```write_ASAP()```, this way:
   
 ```{r, eval=FALSE}
-$ ASAP_result <- ASAP(pca_input = pca, sources = c('ESN','CEU'), admixed=c('GIH'))
+$ ASAP_result <- asap(pca_input = pca, sources = c('ESN','CEU'), admixed=c('GIH'))
 $ write_ASAP(ASAP_input = ASAP_result, output_name = 'my_dir/my_asap_results.txt')
 ```
 
 Plotting
 ============
 
-The function ```plot_asap()``` can help you plot ```ASAP()``` results. Based on your preferences, you can either rely on basic R or on ggplot2 to plot your results. Let's say we want to plot ASAP results using ggplot2:  
+The function ```plot_asap()``` can help you plot ```asap()``` results. Based on your preferences, you can either rely on basic R or on ggplot2 to plot your results. Let's say we want to plot ASAP results using ggplot2:  
 
 ```{r, eval=FALSE}
-$ ASAP_result <- ASAP(pca_input = pca, sources = c('ESN','CEU'), admixed=c('GIH'))
+$ ASAP_result <- asap(pca_input = pca, sources = c('ESN','CEU'), admixed=c('GIH'))
 $ plot_asap(ASAP_result, 'ASAP_plot', type_ggplot = 'YES')
 ```  
 
 Alternatively, to plot with basic R, just run the command without ```type_ggplot``` option, like so:  
 
 ```{r, eval=FALSE}
-$ ASAP_result <- ASAP(pca_input = pca, sources = c('ESN','CEU'), admixed=c('GIH'))
+$ ASAP_result <- asap(pca_input = pca, sources = c('ESN','CEU'), admixed=c('GIH'))
 $ plot_asap(ASAP_result, 'ASAP_plot')
 ```  
   
@@ -122,7 +122,7 @@ Selecting the optimal number of PCs
 ============
 
 ```{r, eval=FALSE}
-$ ASAP_main_result <- ASAP(pca_input = main_pca, sources = c('ESN','CEU'), admixed=c('GIH'))
+$ ASAP_main_result <- asap(pca_input = main_pca, sources = c('ESN','CEU'), admixed=c('GIH'))
 $ pcs_distances(pca_input, output_name, sources_file, return_plot = NULL)
 ``` 
 
@@ -157,14 +157,15 @@ $ ASAP_resampling = read.resampling(path_tofiles = 'where/I/stored/my/PCAs/', fi
 ``` 
   
   
-Once you ran ASAP on all 20 of your resampled PCAs, to estimate the SE you can use the ```se.resampling()``` function. To do so, you will need your main ASAP results, obtained with  ```ASAP()``` on the main PCA (the PCA with all the available SNPs), and the ASAP results obtained from the 20 resampled PCAs (with the funtion ```read.resampling()``` you can see above).  
-In the example below, you can see that we first loaded the AS_file through ```read.table()```, the ASAP main results are obtained with ```ASAP()```, the ASAP resampling results are obtained with ```read.resampling()```. Importantly, to ran ```se.resampling()```, you will also need the number of resampled analyses you ran, for this tutorial we ran 20 PCAs, therefore the parameter 'chromovec' is set as 20 (integer).
+Once you ran ASAP on all 20 of your resampled PCAs, to estimate the SE you can use the ```se.resampling()``` function. To do so, you will need your main ASAP results, obtained with  ```asap()``` on the main PCA (the PCA with all the available SNPs), and the ASAP results obtained from the 20 resampled PCAs (with the funtion ```read.resampling()``` you can see above).  
+In the example below, you can see that we first loaded the AS_file through ```read.table()```, the ASAP main results are obtained with ```asap()```, the ASAP resampling results are obtained with ```read.resampling()```. Importantly, to ran ```se.resampling()```, you will also need the number of resampled analyses you ran, for this tutorial we ran 20 PCAs, therefore the parameter 'chromovec' is set as 20 (integer).
 
 ```{r, eval=FALSE}
 $ main_pca = read_eigen(pca_input = 'data/TOY.pca.evec')
 $ AS_file = read.table('data/Example_AS_eigen', header=TRUE)
-$ ASAP_main_result <- ASAP(pca_input = main_pca, as_file = AS_file)
+$ ASAP_main_result <- asap(pca_input = main_pca, as_file = AS_file)
 $ ASAP_resampling = read.resampling(path_tofiles = 'where/I/stored/my/resampled/PCAs/', file_pattern = 'PCA_Resampling_', as_file = AS_file, eigentype)
 $ chromovec = 20 
 $ ASAP_SE = se.resampling(ASAP_main_result, ASAP_resampling, chromovec)
 ``` 
+
