@@ -2,6 +2,6 @@ pandoc: 1.19.2.1
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
-  my-vignette: my-vignette.html
-last_built: 2024-04-18T14:50Z
+  Tutorial: Tutorial.html
+last_built: 2024-04-19T09:07Z
 

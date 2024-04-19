@@ -41,7 +41,7 @@
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="articles/my-vignette.html">ASAP-vignette</a>
+    <a class="dropdown-item" href="articles/Tutorial.html">Tutorial</a>
   </div>
 </li>
       </ul>
@@ -56,8 +56,126 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9">
-Estimates global ancestry proportions from Principal Component Analyses through Non-Negative Least Squares.
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="asap">ASAP<a class="anchor" aria-label="anchor" href="#asap"></a>
+</h1></div>
+<p><em>ASAP</em> leverages PCA and NNLS (Non-Negative Least Squares) to assess the ancestral composition of admixed individuals with high accuracy and reliability.</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<pre><code><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span> <span class="co"># if you have not installed "devtools" package</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"lm-ut/ASAP"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st">"ASAP"</span><span class="op">)</span></span></code></pre>
+<p><em>ASAP</em> requires the following R packages:</p>
+<pre><code><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"dplyr"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"nnls"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"ggplot2"</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level2">
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
+<p><em>ASAP</em> estimations are based on a PCA where the target and source groups are available. Along with those, we suggest to use additional groups to better define the PC space. Once that the PC space is defined, a set of NNLS is then applied on the PC coordinates, effectively summarizing the genetic ancestry.</p>
+<p>For its most basic usage ASAP needs:</p>
+<ul>
+<li>A PCA matrix (a dataframe with N PCs)</li>
+<li>A list of target and source groups (or samples)</li>
+</ul>
+<div class="section level3">
+<h3 id="basic-usage-example">Basic Usage Example<a class="anchor" aria-label="anchor" href="#basic-usage-example"></a>
+</h3>
+<pre><code>$ pca = read_eigen(pca_input = 'data/TOY.pca.evec')
+$ ASAP_result = ASAP(pca_input = pca, sources = c('GST1','GST2'), admixed=c('70GST1.30GST2'))</code></pre>
+<div class="section level4">
+<h4 id="reading-the-pca-matrix">Reading the PCA Matrix<a class="anchor" aria-label="anchor" href="#reading-the-pca-matrix"></a>
+</h4>
+<p><em>ASAP</em> package has two functions to read the PCA matrix, <code><a href="reference/read_eigen.html">read_eigen()</a></code> and <code><a href="reference/read_flash.html">read_flash()</a></code>.</p>
+<ul>
+<li>
+<code><a href="reference/read_eigen.html">read_eigen()</a></code> will read a PCA that has been created with smartpca from the <a href="https://github.com/DReichLab/EIG" class="external-link">EIGENSOFT</a> software.<br>
+</li>
+<li>
+<code><a href="reference/read_flash.html">read_flash()</a></code> instead, will read a PCA that has been created with <a href="https://github.com/gabraham/flashpca" class="external-link">flashpca</a> software.</li>
+</ul>
+<p>The goal of both functions is to set the PCA file as follows:</p>
+<table class="table">
+<thead><tr class="header">
+<th>POP</th>
+<th>IND</th>
+<th>PCN</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>SRC1</td>
+<td>SRC1_1</td>
+<td>0.01</td>
+</tr>
+<tr class="even">
+<td>SRC1</td>
+<td>SCR1_2</td>
+<td>0.02</td>
+</tr>
+<tr class="odd">
+<td>ADM1</td>
+<td>ADM1_1</td>
+<td>0.08</td>
+</tr>
+</tbody>
+</table>
+<p>If neither <code><a href="reference/read_eigen.html">read_eigen()</a></code> nor <code><a href="reference/read_flash.html">read_flash()</a></code> is for you, you might want to simply use <code><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.table()</a></code>, and set the file so that it has the aforementioned look.</p>
+</div>
+<div class="section level4">
+<h4 id="running-asap">Running ASAP<a class="anchor" aria-label="anchor" href="#running-asap"></a>
+</h4>
+<p>The funtion <code>ASAP()</code> requires also a list of the target and reference groups: you can provide the list in two ways.</p>
+<p>1) You can provide an ‘AS_file’: a file with the list of the Admixed groups (A) and the Source groups (S). If you want to use ASAP sample-wise rather than group-wise, simply adjust the PCA file so that in the ‘POP’ column is identical to the ‘IND’ column, and set the AS_file with the samples list, rather than the group list.<br>
+The AS_file is a two-columns file with the population list on the first column, and the ‘A/S’ information on the second column. The ‘A/S’ information stands for Admixed (A) or Source (S). For each population/group we will indicate whether ASAP should consider it as a Source (S) or as an admixed target (A), the file looks like this:</p>
+<table class="table">
+<thead><tr class="header">
+<th>POP</th>
+<th>A/S</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>SRC1</td>
+<td>S</td>
+</tr>
+<tr class="even">
+<td>SRC2</td>
+<td>S</td>
+</tr>
+<tr class="odd">
+<td>ADM1</td>
+<td>A</td>
+</tr>
+</tbody>
+</table>
+<p>To read the AS_file, a simple <code>read_table(file, header=T)</code> will be sufficient.</p>
+<pre><code>$ AS_file = read.table('data/Example_AS', header=TRUE)</code></pre>
+<p>With the PCA and AS_file loaded, we are finally ready to run ASAP as follows:</p>
+<pre><code>$ ASAP_result = ASAP(pca_input = pca, as_file = AS_file)</code></pre>
+<p>2) You can avoid relying on the AS_file if you wish, using a vector of the target and source groups directly in asap() function, as follows:</p>
+<pre><code>$ ASAP_result = ASAP(pca_input = pca, sources = c('GST1','GST2'), admixed=c('70GST1.30GST2'))</code></pre>
+</div>
+<div class="section level4">
+<h4 id="writing-asap-output">Writing ASAP output<a class="anchor" aria-label="anchor" href="#writing-asap-output"></a>
+</h4>
+<p>Finally, if you want to save <em>ASAP</em> results on a table-like format, you can use <code>write_ASAP()</code>:</p>
+<pre><code>$ ASAP_result &lt;- ASAP(pca_input = pca, sources = c('GST1','GST2'), admixed=c('70GST1.30GST2'))
+$ write_ASAP(ASAP_input = ASAP_result, output_name = 'my_dir/my_asap_results.txt')</code></pre>
+</div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="cite-asap">Cite ASAP<a class="anchor" aria-label="anchor" href="#cite-asap"></a>
+</h2>
+<p>If you use ASAP, please cite <a href="">BiorXiv preprint</a></p>
+</div>
+<div class="section level2">
+<h2 id="contact">Contact<a class="anchor" aria-label="anchor" href="#contact"></a>
+</h2>
+<p>For questions and bug reports please contact <a href="mailto:ludovica.molinaro@kuleuven.be">LM</a>.</p>
+</div>
+</div>
   </main><aside class="col-md-3"><div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
