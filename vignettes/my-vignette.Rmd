@@ -1,8 +1,8 @@
 ---
-title: "ASAP-vignette"
+title: "Tutorial"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{ASAP-vignette}
+  %\VignetteIndexEntry{Tutorial}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
   %\devtools::build_vignettes()
