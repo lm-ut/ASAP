@@ -1,6 +1,6 @@
 # ASAP
 
-*ASAP* leverages PCA and NNLS (Non-Negative Least Squares) to assess the ancestral composition of admixed individuals with high accuracy and reliability.
+*ASAP* leverages PCA and NNLS (Non-Negative Least Squares) to assess the ancestral composition of admixed individuals with high accuracy and reliability. If you use ASAP, please cite [BioRxiv preprint](https://www.biorxiv.org/content/10.1101/2024.05.06.592724v1).
 
 ## Installation
 
