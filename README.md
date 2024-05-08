@@ -96,7 +96,7 @@ $ write_asap(ASAP_input = ASAP_result, output_name = 'my_dir/my_asap_results.txt
 
 ## Cite ASAP
 
-If you use ASAP, please cite [BioRxiv preprint]()
+If you use ASAP, please cite [BioRxiv preprint](https://www.biorxiv.org/content/10.1101/2024.05.06.592724v1)
 
 ## Contact
 
