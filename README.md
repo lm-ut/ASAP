@@ -1,9 +1,8 @@
-# The new version of ASAP is called PANE, you can find it here
-# [PANE](https://github.com/lm-ut/PANE)
-# PANE ('Pa-Neh' - bread in Italian) works much like ASAP, but has a new function to evaluate different models
+## The new version of ASAP is called PANE, you can find it here: [PANE](https://github.com/lm-ut/PANE)
+PANE ('Pa-Neh' - bread in Italian) works much like ASAP, but has a new function to evaluate different models
 
 
-# ASAP
+## ASAP
 
 *ASAP* leverages PCA and NNLS (Non-Negative Least Squares) to assess the ancestral composition of admixed individuals with high accuracy and reliability. If you use ASAP, please cite [BioRxiv preprint](https://www.biorxiv.org/content/10.1101/2024.05.06.592724v1).
 
