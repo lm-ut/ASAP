@@ -1,5 +1,6 @@
-# THIS IS AN OLD VERSION
-# Please use [PANE](https://github.com/lm-ut/PANE) instead
+# The new version of ASAP is called PANE, you can find it here
+# [PANE](https://github.com/lm-ut/PANE)
+# PANE ('Pa-Neh' - bread in Italian) works much like ASAP, but has a new function to evaluate different models
 
 
 # ASAP
