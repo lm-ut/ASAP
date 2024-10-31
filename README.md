@@ -1,5 +1,5 @@
-# THIS IS AN OLD VERSION OF THE TOOL
-# PLEASE USE [PANE](https://github.com/lm-ut/PANE)
+# THIS IS AN OLD VERSION
+# Please use [PANE](https://github.com/lm-ut/PANE) instead
 
 
 # ASAP
